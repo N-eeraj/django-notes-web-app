@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Register</title>
     <link rel="shortcut icon" href="{{url_for('static', filename='images/icon.png')}}" type="image/x-icon">
 </head>
 <body>
     
-    <form action="sign_in" method="POST" class="form">
+    <form action="sign_up" method="POST" class="form">
         <input type="text" name="username" class="input" placeholder="Username">
-        <input type="password" name="password" class="input" placeholder="Password">
-        <input type="submit" value="Sign In">
+        <input type="password" name="password1" class="input" placeholder="Password">
+        <input type="password" name="password2" class="input" placeholder="Confirm Password">
+        <input type="submit" value="Sign Up">
     </form>
 
-    <a href="/register">Register</a>
+    <a href="/">Login</a>
 
 </body>
 </html>
