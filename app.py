@@ -2,10 +2,13 @@ from flask import Flask, request
 from flask.globals import session
 from flask.templating import render_template
 import json
+import os
 
 app = Flask(__name__)
 app.static_folder = 'static'
 app.secret_key = '239XRJ2U3R932RXNU32O'
+
+BASE_DIR = 'notes'
 
 ### functions to read & write to json file
 def read_data():
@@ -53,6 +56,7 @@ def sign_up():
         data = read_data()
 
         if uname not in data:
+            os.mkdir(os.path.join(BASE_DIR, uname))
             data[uname] = {'password': pswd, 'notes': []}
             write_data(data)
             return '<a href = "/">Login</a>'
@@ -61,6 +65,10 @@ def sign_up():
 
     else:
         return '<h2>Password not Matching</h2>'
+
+@app.route('/new')
+def new():
+    return render_template('new.html')
 
 
 if __name__ == '__main__':
