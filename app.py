@@ -4,6 +4,7 @@ from flask.templating import render_template
 import json
 import os
 
+
 app = Flask(__name__)
 app.static_folder = 'static'
 app.secret_key = '239XRJ2U3R932RXNU32O'
@@ -33,18 +34,35 @@ def main():
 def register():
     return render_template('register.html')
 
-# login function
-@app.route('/home', methods=['POST'])
+# home page
+@app.route('/home')
 def home():
+    if 'user' in session:
+        user = session['user']
+        return render_template('home.html', user_notes =  read_data()[user]['notes'], user = user)
+    else:
+        return render_template('error405.html')
+
+# new page
+@app.route('/new')
+def new():
+    if 'user' in session:
+        return render_template('new.html')
+    else:
+        return render_template('error405.html')
+
+# login function
+@app.route('/sign_in', methods=['POST'])
+def sign_in():
     uname = request.form['username']
     pswd = request.form['password']
     user_data = read_data()[uname]
 
     if user_data['password'] == pswd:
         session['user'] = uname
-        return render_template('home.html', user_notes = user_data['notes'], user = uname)
+        return home()
     else:
-        return "<h2>Invalid Credentials</h2>"
+        return '''<script>alert("Invalid Credentials");window.location='../'</script>'''
 
 # registration function
 @app.route('/sign_up', methods=['POST'])
@@ -61,14 +79,29 @@ def sign_up():
             write_data(data)
             return '<a href = "/">Login</a>'
         else:
-            return '<h2>Username already taken</h2><a href="/register">Go Back</a>'
+            return '''<script>alert("Username already taken");window.location='/register'</script>'''
 
     else:
-        return '<h2>Password not Matching</h2>'
+        return '''<script>alert("Password not Matching");window.location='/register'</script>'''
 
-@app.route('/new')
-def new():
-    return render_template('new.html')
+# save function
+@app.route('/save', methods=['POST'])
+def save():
+    if 'user' in session:
+        name = request.form['name']
+        content = request.form['content']
+
+        data = read_data()
+        if name not in data[session['user']]['notes']:
+            with open(f"{BASE_DIR}/{session['user']}/{name}.txt", 'w') as note:
+                note.write(content)
+            data[session['user']]['notes'].append(name)
+            write_data(data)
+            return '''<script>alert("Note Saved");window.location='/home'</script>'''
+        else:
+            return '''<script>alert("Name Exists");window.location='/new';</script>'''
+    else:
+        return render_template('error405.html')
 
 
 if __name__ == '__main__':
