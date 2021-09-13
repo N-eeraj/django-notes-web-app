@@ -41,7 +41,7 @@ def home():
         user = session['user']
         return render_template('home.html', user_notes =  read_data()[user]['notes'], user = user)
     else:
-        return render_template('error405.html')
+        return render_template('405.html')
 
 # new page
 @app.route('/new')
@@ -49,7 +49,7 @@ def new():
     if 'user' in session:
         return render_template('new.html')
     else:
-        return render_template('error405.html')
+        return render_template('405.html')
 
 # login function
 @app.route('/sign_in', methods=['POST'])
@@ -60,7 +60,7 @@ def sign_in():
 
     if user_data['password'] == pswd:
         session['user'] = uname
-        return home()
+        return '''<script>window.location='/home'</script>'''
     else:
         return '''<script>alert("Invalid Credentials");window.location='../'</script>'''
 
@@ -84,6 +84,28 @@ def sign_up():
     else:
         return '''<script>alert("Password not Matching");window.location='/register'</script>'''
 
+# logout function
+@app.route('/logout')
+def logout():
+    if 'user' in session:
+        session.clear()
+        return '''<script>window.location='../';</script>'''
+    else:
+        return render_template('405.html')
+
+# go back function
+@app.route('/back')
+def back():
+    return '''<script>window.location='../'</script>'''
+
+# 
+@app.route('/prev')
+def prev():
+    if 'user' in session:
+        return '''<script>window.location='/home'</script>'''
+    else:
+        return back()
+
 # save function
 @app.route('/save', methods=['POST'])
 def save():
@@ -101,8 +123,12 @@ def save():
         else:
             return '''<script>alert("Name Exists");window.location='/new';</script>'''
     else:
-        return render_template('error405.html')
+        return render_template('405.html')
 
+# 404 error handler
+@app.errorhandler(404)
+def not_found(e):
+  return render_template("404.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
