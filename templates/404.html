@@ -5,12 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Not Found</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/error.css')}}">
     <link rel="shortcut icon" href="{{url_for('static', filename='images/icon.png')}}" type="image/x-icon">
 </head>
 <body>
 
-    <h1>Page Not Found</h1>
-    <a href="/prev">Go Back</a>
+    <div>
+        <h1 class="title">Sorry !<br>Page Not Found</h1>
+        <em><a href="/prev" class="back">Go Back</a></em>
+    </div>
+
+    <img src="https://i.pinimg.com/originals/6a/00/d9/6a00d9f0d294ea4311382be18fd78f88.png" alt="404" class="img">
 
 </body>
 </html>

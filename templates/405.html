@@ -5,12 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Not Allowed</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/error.css')}}">
     <link rel="shortcut icon" href="{{url_for('static', filename='images/icon.png')}}" type="image/x-icon">
 </head>
 <body>
 
-    <h1>Method Not Allowed</h1>
-    <a href="/back">Go Back</a>
+    <div>
+        <h1 class="title">Method Not Allowed</h1>
+        <em><a href="/back" class="back">Login to Continue</a></em>
+    </div>
+
+    <img src="https://integralads.com/wp-content/uploads/2020/03/Wombles_1000px.gif" alt="405" class="img">
 
 </body>
 </html>

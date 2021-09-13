@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100vh;
+    padding: 0 2vw;
+    background-color: rgb(225, 250, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+div{
+    margin-top: 5vh;
+    text-align: center;
+}
+
+.title{
+    margin: 2vh 0;
+    font-family: 'Satisfy', cursive;
+    font-size: 3rem;
+    color: rgb(50, 100, 200);
+}
+
+.back{
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: rgb(25, 50, 150);
+    font-weight: 700;
+    font-family: sans-serif;
+}
+.back:hover{
+    text-decoration: underline;
+}
+
+.img{
+    width: 100vw;
+}
+
+@media screen and (orientation: landscape)
+{
+    body{
+        flex-direction: row;
+    }
+
+    div{
+        margin-left: 5vw;
+    }
+
+    .title{
+        margin: 2vw 0;
+    }
+
+    .img{
+        width: unset;
+        height: 100vh;
+    }
+
+}
+
+@media screen and (min-width: 720px) and (orientation: portrait)
+{
+
+    .title{
+        font-size: 4.8rem;
+    }
+
+    .back{
+        font-size: 1rem;
+    }
+
+    .img{
+        width: 90vw;
+    }
+}
+
+@media screen and (min-width: 960px)
+{
+
+    .title{
+        font-size: 5rem;
+    }
+
+    .back{
+        font-size: 1.5rem;
+    }
+
+    .img{
+        height: 80vh;
+    }
+}
