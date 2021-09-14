@@ -21,9 +21,12 @@ body{
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    background-image: linear-gradient(135deg, #0007, #0009);
+    background-image: linear-gradient(135deg, #0009, #FFF5);
     backdrop-filter: blur(3px);
-    border: 1px solid #0007;
+    border-top: 1px solid #0007;
+    border-left: 1px solid #0007;
+    border-right: 1px solid #FFF7;
+    border-bottom: 1px solid #FFF7;
     border-radius: 7px;
 }
 
@@ -36,44 +39,50 @@ body{
     transition: 500ms;
 }
 .input:focus{
-    background-color: #FFFC;
+    background-color: #FFFD;
 }
 .input::placeholder{
     color: #333;
 }
 
 .btn-div{
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
 }
 
 .form-btn{
-    width: 40%;
+    width: 36%;
     padding: 1vh 0;
-    color: #000;
+    box-shadow: 0 0 7px#000C;
     font-weight: 600;
     font-family: sans-serif;
     font-size: 0.9rem;
+    border-radius: 9px;
 }
 .form-btn:hover{
-    color: #FFF;
+    box-shadow: 0 0 5px#0007;
 }
 
 .btn{
-    background-color: rgb(0, 125, 255);
+    background-color: rgb(0, 175, 0);
+    color: #FFF;
+    cursor: pointer;
 }
 .btn:hover{
-    background-color: rgb(0, 100, 200);
+    background-color: rgb(0, 200, 0);
+    color: #000;
 }
 
 a{
-    background-color: rgb(50, 200, 50);
+    background-color: rgb(0, 125, 255);
+    color: #000;
     text-align: center;
     text-decoration: none;
 }
 a:hover{
-    background-color: rgb(0, 150, 50);
+    background-color: rgb(0, 75, 200);
+    color: #FFF;
 }
 
 @media screen and (min-width: 600px)
