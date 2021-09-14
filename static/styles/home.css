@@ -1,0 +1,95 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.newBtn{
+    width: 15vw;
+    height: 15vw;
+    position: fixed;
+    bottom: 3vh;
+    right: 3vh;
+    background-color: rgb(0, 125, 255);
+    color: #FFF;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 12px 3px #0007;
+}
+.newBtn:hover{
+    box-shadow: 0 0 15px 5px rgba(0, 125, 255, 0.8);
+}
+
+.nav-link{
+    color: #CCC !important;
+}
+.nav-link:hover{
+    color: #EEE !important;
+}
+
+.notes{
+    margin: 0;
+    margin-top: 5vh;
+}
+
+.card{
+    height: 150px;
+    box-shadow: 0 0 3px 5px #0003;
+    border-radius: 12px;
+}
+
+.card-title{
+    text-align: center;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.plus{
+    width: 75%;
+    height: 75%;
+}
+
+@media screen and (min-width: 720px) and (orientation: portrait)
+{
+    .newBtn{
+        width: 12vw;
+        height: 12vw;
+    }
+}
+
+@media screen and (orientation: landscape)
+{
+    .newBtn{
+        width: 8vw;
+        height: 8vw;
+        bottom: 3vw;
+        right: 3vw;
+    }
+}
+
+@media screen and (min-width: 1024px) and (orientation: landscape)
+{
+    .navbar{
+        padding: 0 2.5vw;
+    }
+
+    .nav-link{
+        font-size: 1.3rem;
+    }
+
+    .newBtn{
+        width: 10vh;
+        height: 10vh;
+        bottom: 5vh;
+        right: 7vh;
+    }
+}

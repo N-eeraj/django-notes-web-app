@@ -1,0 +1,1 @@
+const newNote = () => window.location.href='/new';
