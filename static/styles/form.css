@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+body{
+    height: 100vh;
+    background-image: url("https://images.creativemarket.com/0.1.0/ps/817352/580/424/m1/fpnw/wm0/abstract-background-blue-gradient-medium-.jpg?1448878195&s=c0e368464a33e8717261918aa1ad0617");
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    width: 90vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-image: linear-gradient(135deg, #0007, #0009);
+    backdrop-filter: blur(3px);
+    border: 1px solid #0007;
+    border-radius: 7px;
+}
+
+.input{
+    width: 80%;
+    padding: 1vh;
+    background-color: #FFF9;
+    color: #000;
+    border-radius: 5px;
+    transition: 500ms;
+}
+.input:focus{
+    background-color: #FFFC;
+}
+.input::placeholder{
+    color: #333;
+}
+
+.btn-div{
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.form-btn{
+    width: 40%;
+    padding: 1vh 0;
+    color: #000;
+    font-weight: 600;
+    font-family: sans-serif;
+    font-size: 0.9rem;
+}
+.form-btn:hover{
+    color: #FFF;
+}
+
+.btn{
+    background-color: rgb(0, 125, 255);
+}
+.btn:hover{
+    background-color: rgb(0, 100, 200);
+}
+
+a{
+    background-color: rgb(50, 200, 50);
+    text-align: center;
+    text-decoration: none;
+}
+a:hover{
+    background-color: rgb(0, 150, 50);
+}
+
+@media screen and (min-width: 600px)
+{
+    .form{
+        width: 60vw;
+        height: 60vw;
+    }
+
+    .input{
+        width: 80%;
+        padding: 1.5vh 2vh;
+        font-size: 1rem;
+    }
+
+    .form-btn{
+        font-size: 1rem;
+    }
+}
+
+@media screen and (orientation: landscape)
+{
+    .form{
+        width: 85vh;
+        height: 85vh;
+    }
+
+    .form-btn{
+        width: 36%;
+        padding: 1vw 0;
+    }
+    
+    .input{
+        padding: 1vw;
+    }
+}
+
+@media screen and (min-width: 1024px) and (orientation: landscape)
+{
+    .form{
+        width: 65vh;
+        height: 60vh;
+    }
+}

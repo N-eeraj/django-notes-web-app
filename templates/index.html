@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/form.css')}}">
     <link rel="shortcut icon" href="{{url_for('static', filename='images/icon.png')}}" type="image/x-icon">
 </head>
 <body>
@@ -12,10 +13,12 @@
     <form action="sign_in" method="POST" class="form">
         <input type="text" name="username" class="input" placeholder="Username">
         <input type="password" name="password" class="input" placeholder="Password">
-        <input type="submit" value="Sign In">
+        <div class="btn-div">
+            <input type="submit" value="Sign In" class="btn form-btn">
+            <a href="/register" class="form-btn">Register</a>
+        </div>
     </form>
 
-    <a href="/register">Register</a>
 
 </body>
 </html>

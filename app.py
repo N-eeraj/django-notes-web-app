@@ -77,7 +77,7 @@ def sign_up():
             os.mkdir(os.path.join(BASE_DIR, uname))
             data[uname] = {'password': pswd, 'notes': []}
             write_data(data)
-            return '<a href = "/">Login</a>'
+            return '''<script>alert("Registered");window.location='../'</script>'''
         else:
             return '''<script>alert("Username already taken");window.location='/register'</script>'''
 
