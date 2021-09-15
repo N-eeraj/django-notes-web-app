@@ -38,7 +38,7 @@ button{
 }
 .my-card:hover{
     transform: translateY(-3px);
-    box-shadow: 0 7px 9px 3px #3359;
+    box-shadow: 0 7px 9px 3px #0019;
 }
 
 .my-card-title{

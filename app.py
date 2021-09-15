@@ -56,13 +56,16 @@ def new():
 def sign_in():
     uname = request.form['username']
     pswd = request.form['password']
-    user_data = read_data()[uname]
 
-    if user_data['password'] == pswd:
-        session['user'] = uname
-        return '''<script>window.location='/home'</script>'''
-    else:
-        return '''<script>alert("Invalid Credentials");window.location='../'</script>'''
+    try:
+        user_data = read_data()[uname]
+        if user_data['password'] == pswd:
+            session['user'] = uname
+            return '''<script>window.location='/home'</script>'''
+        else:
+            return '''<script>alert("Invalid Credentials");window.location='../'</script>'''
+    except:
+        return '''<script>alert("User Not Found");window.location='../'</script>'''
 
 # registration function
 @app.route('/sign_up', methods=['POST'])
@@ -103,12 +106,25 @@ def save():
         data = read_data()
         if name not in data[session['user']]['notes']:
             with open(f"{BASE_DIR}/{session['user']}/{name}.txt", 'w') as note:
-                note.write(content)
+                note.writelines(content)
             data[session['user']]['notes'].append(name)
             write_data(data)
             return '''<script>alert("Note Saved");window.location='/home'</script>'''
         else:
             return '''<script>alert("Name Exists");window.location='/new';</script>'''
+    else:
+        return render_template('405.html')
+
+# view note function
+@app.route('/view_note')
+def view_note():
+    if 'user' in session:
+        note = request.args.get('note')
+        path = f'notes/{session["user"]}/{note}.txt'
+        with open(path, 'r') as file:
+            lines = file.readlines()
+        return render_template('note.html', user=session['user'], note=note, lines=lines)
+
     else:
         return render_template('405.html')
 
