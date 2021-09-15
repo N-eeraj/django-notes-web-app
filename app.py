@@ -93,24 +93,11 @@ def logout():
     else:
         return render_template('405.html')
 
-# go back function
-@app.route('/back')
-def back():
-    return '''<script>window.location='../'</script>'''
-
-# 
-@app.route('/prev')
-def prev():
-    if 'user' in session:
-        return '''<script>window.location='/home'</script>'''
-    else:
-        return back()
-
 # save function
 @app.route('/save', methods=['POST'])
 def save():
     if 'user' in session:
-        name = request.form['name']
+        name = request.form['name'].strip()
         content = request.form['content']
 
         data = read_data()
@@ -124,6 +111,36 @@ def save():
             return '''<script>alert("Name Exists");window.location='/new';</script>'''
     else:
         return render_template('405.html')
+
+# delete note function
+@app.route('/delete_note')
+def delete_note():
+    if 'user' in session:
+        note = request.args.get('note')
+        path = f'notes/{session["user"]}/{note}.txt'
+        os.remove(path)
+
+        data = read_data()
+        data[session['user']]['notes'].remove(note)
+        write_data(data)
+
+        return '''<script>alert('Note Deleted');window.location='/home'</script>'''
+    else:
+        return render_template('405.html')
+
+
+# go back functions
+
+@app.route('/back')
+def back():
+    return '''<script>window.location='../'</script>'''
+
+@app.route('/prev')
+def prev():
+    if 'user' in session:
+        return '''<script>window.location='/home'</script>'''
+    else:
+        return back()
 
 # 404 error handler
 @app.errorhandler(404)

@@ -31,13 +31,13 @@
 
         {% for note in user_notes %}
             <div class="my-card col-11 col-sm-5 col-lg-3">
-              <div class="bg-dark my-card-title d-flex justify-content-center align-items-center">
+              <div class="my-card-title d-flex justify-content-center align-items-center">
                 <h3 class="note-title text-light">{{note}}</h3>
               </div>
               <div class="card-btn-container d-flex justify-content-around align-items-center">
-                <button class="card-btn bg-success">View</button>
-                <button class="card-btn bg-primary">Edit</button>
-                <button class="card-btn bg-danger">Delete</button>
+                <button class="card-btn bg-success" onclick="viewNote('{{note}}')">View</button>
+                <button class="card-btn bg-primary" onclick="editNote('{{note}}')">Edit</button>
+                <button class="card-btn bg-danger" onclick="deleteNote('{{note}}')">Delete</button>
               </div>
             </div>
         {% endfor %}

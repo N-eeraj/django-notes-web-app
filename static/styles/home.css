@@ -31,7 +31,7 @@ button{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 2px 9px 3px #1137;
+    box-shadow: 0 3px 9px 3px #1137;
     background-color: #EEF;
     cursor: pointer;
     transition: 500ms;
@@ -43,6 +43,8 @@ button{
 
 .my-card-title{
     height: 40%;
+    background-image: linear-gradient(90deg, #37F7, #07DA);
+    backdrop-filter: blur(5px);
 }
 
 .card-btn-container{
@@ -81,8 +83,8 @@ button{
 }
 
 .plus{
-    width: 75%;
-    height: 75%;
+    width: 60%;
+    height: 60%;
 }
 
 @media screen and (min-width: 720px) and (orientation: portrait)
