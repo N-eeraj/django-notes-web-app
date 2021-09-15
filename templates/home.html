@@ -27,18 +27,18 @@
         </div>
       </nav>
     
-    <div class="container-fluid row justify-content-center notes">
+    <div class="container-fluid row justify-content-around notes">
 
         {% for note in user_notes %}
-            <div class="card col-10 col-sm-5 col-md-3">
-                <div class="card-body">
-                    <h3 class="card-title">{{note}}</h3>
-                    <div class="d-flex justify-content-around container-fluid">
-                        <button class="btn btn-success">View</button>
-                        <button class="btn btn-primary">Edit</button>
-                        <button class="btn btn-danger">Delete</button>
-                    </div>
-                </div>
+            <div class="my-card col-11 col-sm-5 col-lg-3">
+              <div class="bg-dark my-card-title d-flex justify-content-center align-items-center">
+                <h3 class="note-title text-light">{{note}}</h3>
+              </div>
+              <div class="card-btn-container d-flex justify-content-around align-items-center">
+                <button class="card-btn bg-success">View</button>
+                <button class="card-btn bg-primary">Edit</button>
+                <button class="card-btn bg-danger">Delete</button>
+              </div>
             </div>
         {% endfor %}
 
