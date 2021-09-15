@@ -5,14 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Notes</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/form.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/new.css')}}">
     <link rel="shortcut icon" href="{{url_for('static', filename='images/icon.png')}}" type="image/x-icon">
 </head>
 <body>
     
-    <form action="save" method="POST">
-        <input type="text" name="name" id="name" class="input" placeholder="Name">
-        <textarea name="content" id="content" placeholder="Enter note here..."></textarea>
-        <input type="submit" value="Save Note">
+    <form action="save" method="POST" class="form">
+        <input type="text" name="name" id="name" class="input" placeholder="Name" required>
+        <textarea name="content" id="content" class="input text-area" placeholder="Enter note here..." required></textarea>
+        <div class="btn-div">
+            <input type="submit" value="Save Note" class="btn form-btn">
+            <a href="/home" class="form-btn cancel-btn">Cancel</a>
+        </div>
     </form>
 
 </body>

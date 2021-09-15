@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.form{
+    width: 95%;
+    height: 80vh;
+}
+
+.input{
+    width: 85%;
+}
+
+.text-area{
+    height: 70%;
+    resize: none;
+}
+
+.cancel-btn{
+    background-color: rgb(150, 0, 0);
+}
+.cancel-btn:hover{
+    background-color: rgb(125, 0, 0);
+}
+
+@media screen and (min-width: 600px)
+{
+    .form{
+        width: 80%;
+        height: 90vh;
+    }
+
+    .form-btn{
+        width: 20%;
+    }
+}
+
+@media screen and (orientation: landscape)
+{
+    .text-area{
+        height: 50%;
+    }    
+}
