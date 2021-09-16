@@ -3,7 +3,7 @@ from flask.globals import session
 from flask.templating import render_template
 import json
 import os
-
+from tool import skip_line
 
 app = Flask(__name__)
 app.static_folder = 'static'
@@ -106,7 +106,7 @@ def save():
         data = read_data()
         if name not in data[session['user']]['notes']:
             with open(f"{BASE_DIR}/{session['user']}/{name}.txt", 'w') as note:
-                note.writelines(content)
+                note.write(content)
             data[session['user']]['notes'].append(name)
             write_data(data)
             return '''<script>alert("Note Saved");window.location='/home'</script>'''
@@ -122,7 +122,8 @@ def view_note():
         note = request.args.get('note')
         path = f'notes/{session["user"]}/{note}.txt'
         with open(path, 'r') as file:
-            lines = file.readlines()
+            lines = skip_line(file.readlines())
+        print(lines)
         return render_template('note.html', user=session['user'], note=note, lines=lines)
 
     else:
