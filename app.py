@@ -123,9 +123,7 @@ def view_note():
         path = f'notes/{session["user"]}/{note}.txt'
         with open(path, 'r') as file:
             lines = skip_line(file.readlines())
-        print(lines)
         return render_template('note.html', user=session['user'], note=note, lines=lines)
-
     else:
         return render_template('405.html')
 

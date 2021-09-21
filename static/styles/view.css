@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.title{
+    height: 10vh;
+    padding-left: 5%;
+    background-image: linear-gradient(-90deg, #37F7, #07DA);
+    color: #FFF;
+    font-size: 5vh;
+    line-height: 10vh;
+}
+
+.note{
+    min-height: 90vh;
+    padding: 5%;
+    background-color: #EEF;
+    box-sizing: border-box;
+}
+
+.line{
+    width: 100%;
+    margin-top: 5px;
+    color: #003;
+    font-size: 3vh;
+}
+
+li::marker{
+    content: none;
+}
+
+@media (orientation: landscape)
+{
+    .title{
+        padding: 0.5vh 5%;
+        font-size: 3.6vw;
+    }
+    .note{
+        min-height: 89vh;
+        padding: 3% 5%;
+    }
+    .line{
+        font-size: 2.5vw;
+    }
+}
+
+@media (min-width: 1080px)
+{
+    .line{
+        font-size: 1.8vw;
+    }
+}

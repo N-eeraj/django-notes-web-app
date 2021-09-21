@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{user}}:{{note}}</title>
+    <title>{{user}} : {{note}}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/view.css')}}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='images/icon.png')}}" type="image/x-icon">
 </head>
 <body>
 
-    <ul>
+    <h1 class="title">{{note}}</h1>
+
+    <ul class="note">
         {% for line in lines %}
-            <li>{{line}}</li>
+            <li class="line">{{line}}</li>
         {% endfor %}
     </ul>
 
